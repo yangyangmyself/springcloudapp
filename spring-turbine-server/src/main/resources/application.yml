@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: turbine-service
+server:
+  port: 8897
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server-c1:9002/eureka
+    healthcheck:
+      enabled: true
+turbine:
+  aggregator:
+    clusterConfig: default
+  appConfig: consumer-hystrix-service
+  clusterNameExpression: new String("default")

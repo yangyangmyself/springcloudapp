@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: consumer-service
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server-c1:9001/eureka
+server:
+  port: 8899

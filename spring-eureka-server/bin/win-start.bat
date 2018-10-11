@@ -1,0 +1,1 @@
+java -jar -Deureka.environment=prod spring-eureka-server-1.0.1-SNAPSHOT.jar

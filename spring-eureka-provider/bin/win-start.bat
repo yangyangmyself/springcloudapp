@@ -1,0 +1,1 @@
+java -jar spring-eureka-client-1.0.1-SNAPSHOT.jar
