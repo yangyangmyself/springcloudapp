@@ -16,25 +16,9 @@ ________________________________________
 ________________________________________
 2．1服务端
 2．1．1 配置库
-创建新的空目录，在此目录下创建Dockerfile空文件，定义Dockerfile文件内容。DockerFile分为四部分组成：基础镜像信、维护者信息、镜像操作指令和容器启动时执行指令。
-# Use an official Python runtime as a parent image
-FROM python:2.7-slim
-# Set the working directory to /app
-WORKDIR /app
-# Copy the current directory contents into the container at /app
-ADD . /app
-# Install any needed packages specified in requirements.txt
-RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
-# Make port 80 available to the world outside this container
-EXPOSE 80
-# Define environment variable
-ENV NAME World
-# Run app.py when the container launches
-CMD ["python", "app.py"]
 
 2．2客户端
-
 
 
 
