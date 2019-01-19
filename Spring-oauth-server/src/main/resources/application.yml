@@ -1,0 +1,27 @@
+spring:
+  profiles: default
+  application:
+    name: OAUTH-SERVICE
+  redis:
+    hostname: 192.168.110.132
+    database: 1
+    port: 6379
+    password: ygnet@20160101
+    timeout: 2000
+    pool:
+      min-idle: 2
+      max-idle: 3
+      max-total: 10
+server:
+  port: 8066
+eureka:
+  instance:
+    appname: OAUTH-SERVICE
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 30 
+  client:
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://192.168.2.32:31789/eureka
+    healthcheck:
+      enabled: true

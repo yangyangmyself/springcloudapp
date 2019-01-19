@@ -1,0 +1,38 @@
+kind: Deployment
+apiVersion: apps/v1beta1
+metadata:
+  labels:
+    k8s-app: gdsc-eureka-2
+  name: gdsc-eureka-2
+  namespace: default
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gdsc-eureka-2
+    spec:
+      containers:
+      - name: gdsc-eureka-2
+        image: 192.168.2.32:5000/eurekaserver:latest
+        ports:
+        - containerPort: 9011
+        args: ["--spring.profiles.active=s2","--server.port=9011","--eureka.instance.hostname=gdsc-eureka-2","--RSINFOS=http://gdsc-eureka-1:9010/eurake/"]
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  labels:
+    k8s-app: gdsc-eureka-2
+  name: gdsc-eureka-2
+  namespace: default
+spec:
+  type: ClusterIP
+  selector:
+    app: gdsc-eureka-2
+  ports:
+    - protocol: TCP
+      port: 9011
+      targetPort: 9011

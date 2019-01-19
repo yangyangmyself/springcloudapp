@@ -2,42 +2,50 @@
 # Items that apply to ALL profiles:  
 spring:
   application:
-    name: ABC-SERVICE # ==> This is Service-Id 
+    name: ABC-SERVICE # ==> This is Service-Id
+  profiles: abc-service-replica01
 eureka:
   instance:
     appname: ABC-SERVICE  # ==> This is a instance of ABC-SERVICE
+    preferIpAddress: true
     lease-renewal-interval-in-seconds: 10
     lease-expiration-duration-in-seconds: 30 
   client:
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://eureka-server-c1:9001/eureka
+      defaultZone: http://localhost:9001/eureka
     healthcheck:
       enabled: true
 server:
   port: 8000
 ---
 spring:
-  profiles: abc-service-replica01
+  application:
+    name: ABC-SERVICE # ==> This is Service-Id
+  profiles: abc-service-replica02
 eureka:
   instance:
     appname: ABC-SERVICE  # ==> This is a instance of ABC-SERVICE
+    preferIpAddress: true
     lease-renewal-interval-in-seconds: 10
     lease-expiration-duration-in-seconds: 30 
   client:
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://eureka-server-c1:9001/eureka
+      defaultZone: http://localhost:9001/eureka
     healthcheck:
       enabled: true
 server:
   port: 8001
 ---
 spring:
-  profiles: abc-service-replica02
+  application:
+    name: ABC-SERVICE # ==> This is Service-Id
+  profiles: abc-service-replica03
 eureka:
   instance:
-    appname: ABC-SERVICE  # ==> This is a instance of ABC-SERVICE
+    appname: ABC-SERVICE03  # ==> This is a instance of ABC-SERVICE
+    preferIpAddress: true
     lease-renewal-interval-in-seconds: 10
     lease-expiration-duration-in-seconds: 30 
   client:
@@ -50,10 +58,13 @@ server:
   port: 8002
 ---
 spring:
-  profiles: abc-service-replica03
+  application:
+    name: ABC-SERVICE # ==> This is Service-Id
+  profiles: abc-service-replica04
 eureka:
   instance:
-    appname: ABC-SERVICE  # ==> This is a instance of ABC-SERVICE
+    appname: ABC-SERVICE04  # ==> This is a instance of ABC-SERVICE
+    preferIpAddress: true
     lease-renewal-interval-in-seconds: 10
     lease-expiration-duration-in-seconds: 30 
   client:

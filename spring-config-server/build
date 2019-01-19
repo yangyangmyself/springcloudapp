@@ -1,0 +1,4 @@
+# Build image
+docker build . -f DockerFile 192.168.2.32:5000/configserver:latest
+# Run image
+docker run -i -t -p 8888:8888 192.168.2.32:5000/configserver:latest

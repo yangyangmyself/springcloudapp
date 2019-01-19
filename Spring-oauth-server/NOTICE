@@ -1,0 +1,16 @@
+==================jdk===========================
+
+keytool -genkeypair -alias server -keypass 123456 -storetype jks -storepass 123456 -validity 3600 -keyalg RSA -keysize 2048 -keystore sso.jks
+
+keytool -list -v -keystore sso.jks
+
+==================openssl=======================
+
+openssl genrsa -des3 -out private.key 
+
+openssl rsa -pubout -in private.key -out public.key 
+
+==================ssh-keygen===================
+
+
+

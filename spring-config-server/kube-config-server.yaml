@@ -1,0 +1,37 @@
+kind: Deployment
+apiVersion: apps/v1beta1
+metadata:
+  labels:
+    k8s-app: gdsc-conf
+  name: gdsc-conf
+  namespace: default
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: config-service
+    spec:
+      containers:
+      - name: config-service
+        image: 192.168.2.32:5000/configserver:latest
+        ports:
+        - containerPort: 8888
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  labels:
+    k8s-app: gdsc-conf
+  name: gdsc-conf
+  namespace: default
+spec:
+  type: ClusterIP
+  selector:
+    app: config-service
+  ports:
+    - protocol: TCP
+      port: 8888
+      targetPort: 8888

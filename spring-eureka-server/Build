@@ -1,0 +1,11 @@
+docker build . -f EurekaServerDockerFile -t 192.168.2.32:5000/eurekaserver:latest
+
+docker run -i -t 192.168.2.32:5000/eurekaserver:latest
+
+#dynamic config parameters
+docker run -i -t -p 9010:9010 \n
+-e spring.profiles.active=s1 \n
+-e server.port=9010 \n
+-e eureka.instance.hostname=bigdata \n
+-e RSINFOS=http://localhost:9011/eurake/,http://localhost:9012/eurake/ \n
+eurekaserver:latest

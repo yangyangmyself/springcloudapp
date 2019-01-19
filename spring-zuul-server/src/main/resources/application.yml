@@ -1,12 +1,22 @@
 spring:
   application:
     name: gateway-service
+  redis:
+    hostname: 192.168.110.132
+    database: 1
+    port: 6379
+    password: ygnet@20160101
+    timeout: 2000
+    pool:
+      min-idle: 2
+      max-idle: 3
+      max-total: 10  
 server:
   port: 8896
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://eureka-server-c1:9001/eureka
+      defaultZone: http://192.168.2.32:31789/eureka
     healthcheck:
       enabled: true
 zuul:
@@ -15,3 +25,8 @@ zuul:
       path: /t1/**
       #url: http://localhost:8000/
       serviceId: ABC-SERVICE
+  SendErrorFilter:
+    error:
+      disable: true
+  gateway:
+    error: /api/app/error

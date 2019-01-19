@@ -5,13 +5,13 @@ server:
   port: 8895
 ribbon:
   eureka:
-   enabled: true
-#rb1:
-#  ribbon:
-#    listOfServers: abc-service
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://eureka-server-c1:9001/eureka
-    healthcheck:
-      enabled: true
+   enabled: false
+rb1:
+  ribbon:
+    listOfServers: localhost:8000,localhost:8001
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://eureka-server-c1:9001/eureka
+#    healthcheck:
+#      enabled: true

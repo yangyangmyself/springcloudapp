@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>token.html</title>
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+    <script type="text/javascript" src="./jquery/jquery-3.3.1.min.js"></script>
+    <style type="text/css">
+    	.form1 input{height:30px; font-size:16px; width:200px;}
+    </style>
+  </head>
+  <body>
+    <p>Welcome Oauth2</p>
+    <form action="oauth/token" method="post" class="form1" id="form1">
+    response_type:&nbsp;&nbsp;<input type="text" name="response_type" value="token"/><br/><br/>
+    grant_type:&nbsp;&nbsp;<input type="text" name="grant_type" value="authorization_code"/><br/><br/>
+    client_id:&nbsp;&nbsp;<input type="text" name="client_id" value="qq"/><br/><br/>
+    redirect_uri:&nbsp;&nbsp;<input type="text" name="redirect_uri" value="http://localhost:8066/token.html"/><br/><br/>
+    code:&nbsp;&nbsp;<input type="text" name="code" class="code"/><br/><br/>
+    <input type="submit" name="btn" value="Get Token"/>
+    </form>
+    <script type="text/javascript">
+	    var getUrlParameter = function getUrlParameter(sParam) {
+	        var sPageURL = window.location.search.substring(1),
+	            sURLVariables = sPageURL.split('&'),
+	            sParameterName,
+	            i;
+	        for (i = 0; i < sURLVariables.length; i++) {
+	            sParameterName = sURLVariables[i].split('=');
+	            if (sParameterName[0] === sParam) {
+	                return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+	            }
+	        }
+	    };
+	    var _code = getUrlParameter('code');
+	    $("input[name='code']").val(_code);
+    </script>
+  </body>
+</html>

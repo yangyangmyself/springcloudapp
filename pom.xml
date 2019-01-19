@@ -29,7 +29,8 @@
     <module>spring-turbine-server</module>
     <module>spring-feign-client</module>
     <module>spring-zuul-server</module>
-    <module>spring-cloud-ribbon</module>
+    <module>spring-ribbon-client</module>
+    <module>spring-oauth-server</module>
   </modules>
   
   <pluginRepositories>

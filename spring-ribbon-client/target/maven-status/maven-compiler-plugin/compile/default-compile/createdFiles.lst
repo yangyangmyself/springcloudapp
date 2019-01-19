@@ -1,4 +1,0 @@
-org\spring\cloud\ribbon\RibbonClientApplication.class
-org\spring\cloud\ribbon\restapi\TestService.class
-org\spring\cloud\ribbon\RbConfiguration.class
-org\spring\cloud\ribbon\restapi\ConsumerRestController.class

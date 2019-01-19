@@ -1,0 +1,32 @@
+FROM 192.168.2.32:5000/alpine-java8:latest
+#FROM java:8
+
+MAINTAINER oyyl
+
+# Copy os jdk to docker os
+#COPY ./jdk1.8.0_144 /usr/local/jdk1.8.0_144
+
+# Config jdk environment
+#ENV JAVA_HOME /usr/local/jdk1.8.0_144
+# Path
+#ENV PATH $PATH:$JAVA_HOME/bin:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/jre/lib/rt.jar
+
+RUN mkdir /usr/local/app
+RUN chmod 770 /usr/local/app
+
+# Deploy application
+COPY spring-eureka-server-1.0.1-SNAPSHOT.jar /usr/local/app/
+
+# Config port
+#EXPOSE 9010
+
+# Change workspace
+WORKDIR /usr/local/app/
+
+# Test
+RUN pwd
+
+# Exe commond
+#CMD ./start-config.sh
+#ENTRYPOINT ["./start-config.sh"]
+ENTRYPOINT ["java","-jar","-Deureka.environment=prod","spring-eureka-server-1.0.1-SNAPSHOT.jar"]

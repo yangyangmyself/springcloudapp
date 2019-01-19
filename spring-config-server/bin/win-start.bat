@@ -1,0 +1,1 @@
+java -jar -Dspring.profiles.active=native -Deureka.environment=prod spring-config-server-1.0-SNAPSHOT.jar

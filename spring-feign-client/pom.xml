@@ -2,25 +2,59 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
+  <groupId>feign-client</groupId>
+  <artifactId>spring-feign-client</artifactId>
+  <version>1.0.1-SNAPSHOT</version>
+  
   <parent>
     <groupId>cloud</groupId>
     <artifactId>spring-cloud-pro</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>cloud</groupId>
-  <artifactId>spring-feign-client</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  
   <name>spring-feign-client</name>
-  <url>http://maven.apache.org</url>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
+       <groupId>org.springframework.cloud</groupId>
+       <artifactId>spring-cloud-starter-feign</artifactId>
     </dependency>
+    <!-- 自动发现客户端 -->
+    <!-- <dependency>
+       <groupId>org.springframework.cloud</groupId>
+       <artifactId>spring-cloud-starter-eureka</artifactId>
+    </dependency> -->
+	<!-- 客户端负载均衡与服务名称解析 -->
+    <!-- <dependency>
+       <groupId>org.springframework.cloud</groupId>
+       <artifactId>spring-cloud-starter-ribbon</artifactId>
+    </dependency> -->
+	<dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+	<!-- <dependency>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-starter-config</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-config-client</artifactId>
+	</dependency> -->
+	<dependency>
+	    <groupId>ch.qos.logback</groupId>
+	    <artifactId>logback-classic</artifactId>
+	</dependency>
   </dependencies>
+  <build>
+      <plugins>
+          <plugin>
+              <groupId>org.springframework.boot</groupId>
+              <artifactId>spring-boot-maven-plugin</artifactId>
+          </plugin>
+      </plugins>
+  </build>
 </project>
