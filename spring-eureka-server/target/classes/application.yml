@@ -1,0 +1,38 @@
+---      
+spring:
+  profiles: d1
+  application:
+    name: eureka-cluster
+server:
+  port: 9001
+eureka:
+  instance:
+    hostname: eureka-server-c1
+    preferIpAddress: true
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://192.168.111.176:9002/eureka/
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 5000
+---      
+spring:
+  profiles: d2
+  application:
+    name: eureka-cluster
+server:
+  port: 9002
+eureka:
+  instance:
+    hostname: eureka-server-c2
+    preferIpAddress: true
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://192.168.111.176:9001/eureka/
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 5000

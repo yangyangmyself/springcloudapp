@@ -17,8 +17,16 @@ spec:
         image: 192.168.2.32:5000/eurekaserver:latest
         ports:
         - containerPort: 9010
-        args: ["--spring.profiles.active=s1","--server.port=9010","--eureka.instance.hostname=gdsc-eureka-1","--RSINFOS=http://gdsc-eureka-2:9011/eurake/"]
-
+        env:
+          - name: spring.profiles.active
+            value: "s1"
+          - name: eureka.instance.hostname
+            value: "gdsc-eureka-1"
+          - name: RSINFOS
+            value: "http://gdsc-eureka-2:9011/eurake/"
+          - name: server.port
+            value: "9010"
+      
 ---
 
 kind: Service
@@ -29,7 +37,7 @@ metadata:
   name: gdsc-eureka-1
   namespace: default
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: gdsc-eureka-1
   ports:

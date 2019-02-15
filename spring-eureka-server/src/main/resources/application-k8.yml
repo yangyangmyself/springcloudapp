@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: eureka-service
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: ${RSINFOS}
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 5000
